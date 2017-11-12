@@ -36,5 +36,7 @@ module.exports = function balance(picks) {
             break;
         }
     }
-    return balanced.map((pick) => Object.assign({}, pick, { count: pick.people.length }));
+    return balanced
+        .map((pick) => Object.assign({}, pick, { count: pick.people.length }))
+        .sort((a, b) => a.day - b.day);
 }
