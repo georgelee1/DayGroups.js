@@ -20,7 +20,7 @@ PersonSix,2,3
 ## Output (console)
 ```
 Total Days: 3
-Days (size): 0 (2) | 1 (2) | 2 (2) |
+Days (size): Mon (2) | Tue (2) | Wed (2) |
 Total People: 6
 ```
 
