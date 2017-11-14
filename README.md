@@ -33,7 +33,7 @@ Example:
 ## Output (console)
 ```
 Total Days: 3
-Days (size): Mon (2) | Tue (2) | Wed (2) |
+Days (size): Mon (2) | Tue (2) | Wed (2)
 Total People: 8
 Total Included People: 6
 Excluded People: PersonSeven | PersonEight
