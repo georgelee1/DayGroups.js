@@ -1,13 +1,22 @@
-module.exports = function pick({ result, days }) {
+module.exports = function pick({ result, days, ...rest }) {
     const picks = result.slice();
     const picked = days.map((day) => {
-        return Object.assign({}, day, {
+        return {
+            ...day,
             people: picks
                 .filter(({ choice }) => choice[0] === day.day)
-                .map((person) => Object.assign({}, person, { choice: person.choice.slice(1) })),
+                .map((person) => ({ ...person, choice: person.choice.slice(1) })),
+        }
+
+        return Object.assign({}, day, {
+            
         });
     });
-    return picked
-        .filter(({ people }) => people.length)
-        .map((pick) => Object.assign({}, pick, { count: pick.people.length }));
+
+    return {
+        result: picked
+            .filter(({ people }) => people.length)
+            .map((pick) => ({ ...pick, count: pick.people.length })),
+        ...rest,
+    };
 }

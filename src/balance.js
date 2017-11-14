@@ -28,15 +28,19 @@ function pass(balanced) {
     return final;
 }
 
-module.exports = function balance(picks) {
-    const balanced = picks.slice().sort((a, b) => b.people.length - a.people.length);
+module.exports = function balance({ result, ...rest }) {
+    const balanced = result.slice().sort((a, b) => b.people.length - a.people.length);
     for (let x = 0; x < 10; x++) {
         let final = pass(balanced);
         if (final) {
             break;
         }
     }
-    return balanced
-        .map((pick) => Object.assign({}, pick, { count: pick.people.length }))
-        .sort((a, b) => a.day - b.day);
+    
+    return {
+        result: balanced
+            .map((pick) => ({ ...pick, count: pick.people.length }))
+            .sort((a, b) => a.day - b.day),
+        ...rest,
+    };
 }

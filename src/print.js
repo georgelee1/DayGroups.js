@@ -17,7 +17,7 @@ function toString(result) {
 
 module.exports = function(path, result) {
     return new Promise((resolve, reject) => {
-        fs.writeFile(path, toString(result), function(err) {
+        fs.writeFile(path, toString(result.result), function(err) {
             if (err) {
                 reject(err);
             } else {
